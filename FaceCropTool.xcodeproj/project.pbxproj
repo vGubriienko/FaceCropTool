@@ -18,6 +18,9 @@
 		71436FFE16CD1C5400FA53C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71436FFD16CD1C5400FA53C5 /* Default-568h@2x.png */; };
 		7143700116CD1C5400FA53C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143700016CD1C5400FA53C5 /* ViewController.m */; };
 		7143700416CD1C5400FA53C5 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7143700216CD1C5400FA53C5 /* ViewController.xib */; };
+		7143700C16CD1C9A00FA53C5 /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143700B16CD1C9A00FA53C5 /* CropView.m */; };
+		7143700E16CD1DBF00FA53C5 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7143700D16CD1DBF00FA53C5 /* test.jpg */; };
+		7143701116CD383C00FA53C5 /* UIView+FaceCropping.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143701016CD383B00FA53C5 /* UIView+FaceCropping.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		71436FFF16CD1C5400FA53C5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7143700016CD1C5400FA53C5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7143700316CD1C5400FA53C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		7143700A16CD1C9A00FA53C5 /* CropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropView.h; sourceTree = "<group>"; };
+		7143700B16CD1C9A00FA53C5 /* CropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropView.m; sourceTree = "<group>"; };
+		7143700D16CD1DBF00FA53C5 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		7143700F16CD383B00FA53C5 /* UIView+FaceCropping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FaceCropping.h"; sourceTree = "<group>"; };
+		7143701016CD383B00FA53C5 /* UIView+FaceCropping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FaceCropping.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,10 @@
 				71436FFF16CD1C5400FA53C5 /* ViewController.h */,
 				7143700016CD1C5400FA53C5 /* ViewController.m */,
 				7143700216CD1C5400FA53C5 /* ViewController.xib */,
+				7143700A16CD1C9A00FA53C5 /* CropView.h */,
+				7143700B16CD1C9A00FA53C5 /* CropView.m */,
+				7143700F16CD383B00FA53C5 /* UIView+FaceCropping.h */,
+				7143701016CD383B00FA53C5 /* UIView+FaceCropping.m */,
 				71436FEE16CD1C5400FA53C5 /* Supporting Files */,
 			);
 			path = FaceCropTool;
@@ -96,6 +108,7 @@
 		71436FEE16CD1C5400FA53C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7143700D16CD1DBF00FA53C5 /* test.jpg */,
 				71436FEF16CD1C5400FA53C5 /* FaceCropTool-Info.plist */,
 				71436FF016CD1C5400FA53C5 /* InfoPlist.strings */,
 				71436FF316CD1C5400FA53C5 /* main.m */,
@@ -163,6 +176,7 @@
 				71436FFC16CD1C5400FA53C5 /* Default@2x.png in Resources */,
 				71436FFE16CD1C5400FA53C5 /* Default-568h@2x.png in Resources */,
 				7143700416CD1C5400FA53C5 /* ViewController.xib in Resources */,
+				7143700E16CD1DBF00FA53C5 /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +190,8 @@
 				71436FF416CD1C5400FA53C5 /* main.m in Sources */,
 				71436FF816CD1C5400FA53C5 /* AppDelegate.m in Sources */,
 				7143700116CD1C5400FA53C5 /* ViewController.m in Sources */,
+				7143700C16CD1C9A00FA53C5 /* CropView.m in Sources */,
+				7143701116CD383C00FA53C5 /* UIView+FaceCropping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
