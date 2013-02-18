@@ -10,6 +10,7 @@
 
 @interface UIView (FaceCropping)
 
+- (CGRect)aspectFillRectForSize:(CGSize)size;
 - (CGRect)croppingRectForRect:(CGRect)cropRect faceRect:(CGRect)faceRect;
 
 @end

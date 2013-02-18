@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CropView.h"
+#import "UIView+FaceCropping.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet CropView *cropView;
@@ -22,7 +23,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     _cropView.faceRect = CGRectMake(140.0f, 0.0f, 70.0f, 85.0f);
-    _cropView.cropRect = CGRectMake(0.0f, 200.0, 100.0f, 300.0f);
+    _cropView.cropRect = [_cropView aspectFillRectForSize:CGSizeMake(10.0f, 100.0f)];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gesturePanMoved:)];
     [panRecognizer setMinimumNumberOfTouches:1];

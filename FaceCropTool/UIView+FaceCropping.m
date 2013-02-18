@@ -10,6 +10,20 @@
 
 @implementation UIView (FaceCropping)
 
+- (CGRect)aspectFillRectForSize:(CGSize)size {
+    CGSize aspectFillSize = self.bounds.size;
+    CGFloat aspect = size.width / size.height;
+    CGFloat originalAspect = aspectFillSize.width / aspectFillSize.height;
+
+    if ( aspect / originalAspect > 1.0f ) {
+        aspectFillSize.height = aspectFillSize.width / aspect;
+    } else {
+        aspectFillSize.width = aspectFillSize.height * aspect;
+    }
+    
+    return CGRectMake(0.0f, 0.0f, aspectFillSize.width, aspectFillSize.height);
+}
+
 - (CGRect)croppingRectForRect:(CGRect)cropRect faceRect:(CGRect)faceRect {
     
     // in case cropRect contains faceRect do nothing
