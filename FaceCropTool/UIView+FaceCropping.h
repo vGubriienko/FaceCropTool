@@ -12,5 +12,6 @@
 
 - (CGRect)aspectFillRectForSize:(CGSize)size;
 - (CGRect)croppingRectForRect:(CGRect)cropRect faceRect:(CGRect)faceRect;
++ (CGRect)crop:(CGSize)sourceSize toFitSize:(CGSize)fitSize withoutCroppingRect:(CGRect)featuresRect;
 
 @end

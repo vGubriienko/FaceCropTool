@@ -9,15 +9,24 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "CroppedViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    UITabBarController *tabBarCtrl = [[UITabBarController alloc] init];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.croppedViewController = [CroppedViewController new];
+    [self.croppedViewController view];
+    
+    tabBarCtrl.viewControllers = @[self.viewController, self.croppedViewController];
+    
+    self.window.rootViewController = tabBarCtrl;
     [self.window makeKeyAndVisible];
     return YES;
 }

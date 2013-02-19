@@ -47,4 +47,38 @@
     return resultRect;
 }
 
++ (CGRect)crop:(CGSize)sourceSize toFitSize:(CGSize)fitSize withoutCroppingRect:(CGRect)featuresRect {
+    
+    CGFloat aspect = fitSize.width / fitSize.height;
+    CGFloat originalAspect = sourceSize.width / sourceSize.height;
+    CGSize resultSize = sourceSize;
+    
+    if ( aspect / originalAspect > 1.0f ) {
+        resultSize.height = roundf(sourceSize.width / aspect);
+    } else {
+        resultSize.width = roundf(sourceSize.height * aspect);
+    }
+    
+    CGRect cropRect = CGRectMake(0.0f, 0.0f, resultSize.width, resultSize.height);
+    
+    // in case cropRect contains faceRect do nothing
+    if ( CGRectContainsRect(cropRect, featuresRect) ) {
+        return cropRect;
+    }
+    
+    //move center of cropRect to center of faceRect
+    cropRect =  CGRectOffset(cropRect,
+                             CGRectGetMidX(featuresRect) - CGRectGetMidX(cropRect) ,
+                             CGRectGetMidY(featuresRect) - CGRectGetMidY(cropRect));
+    
+    cropRect.origin.x = (cropRect.origin.x < 0.0f) ? 0.0f : cropRect.origin.x ;
+    cropRect.origin.y = (cropRect.origin.y < 0.0f) ? 0.0f : cropRect.origin.y ;
+    cropRect.origin.x = (cropRect.origin.x + cropRect.size.width > sourceSize.width) ? sourceSize.width - cropRect.size.width : cropRect.origin.x ;
+    cropRect.origin.y = (cropRect.origin.y + cropRect.size.height > sourceSize.height) ? sourceSize.height - cropRect.size.height : cropRect.origin.y ;
+    cropRect.origin.x = roundf(cropRect.origin.x);
+    cropRect.origin.y = roundf(cropRect.origin.y);
+    
+    return cropRect;
+}
+
 @end

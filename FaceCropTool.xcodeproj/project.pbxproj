@@ -21,6 +21,9 @@
 		7143700C16CD1C9A00FA53C5 /* CropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143700B16CD1C9A00FA53C5 /* CropView.m */; };
 		7143700E16CD1DBF00FA53C5 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7143700D16CD1DBF00FA53C5 /* test.jpg */; };
 		7143701116CD383C00FA53C5 /* UIView+FaceCropping.m in Sources */ = {isa = PBXBuildFile; fileRef = 7143701016CD383B00FA53C5 /* UIView+FaceCropping.m */; };
+		71E5171E16D393F4004A116C /* CroppedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71E5171C16D393F3004A116C /* CroppedViewController.m */; };
+		71E5171F16D393F4004A116C /* CroppedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71E5171D16D393F4004A116C /* CroppedViewController.xib */; };
+		71E5172116D39B5F004A116C /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71E5172016D39B5F004A116C /* CoreImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +48,10 @@
 		7143700D16CD1DBF00FA53C5 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		7143700F16CD383B00FA53C5 /* UIView+FaceCropping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FaceCropping.h"; sourceTree = "<group>"; };
 		7143701016CD383B00FA53C5 /* UIView+FaceCropping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FaceCropping.m"; sourceTree = "<group>"; };
+		71E5171B16D393F3004A116C /* CroppedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CroppedViewController.h; sourceTree = "<group>"; };
+		71E5171C16D393F3004A116C /* CroppedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CroppedViewController.m; sourceTree = "<group>"; };
+		71E5171D16D393F4004A116C /* CroppedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CroppedViewController.xib; sourceTree = "<group>"; };
+		71E5172016D39B5F004A116C /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E5172116D39B5F004A116C /* CoreImage.framework in Frameworks */,
 				71436FE816CD1C5300FA53C5 /* UIKit.framework in Frameworks */,
 				71436FEA16CD1C5300FA53C5 /* Foundation.framework in Frameworks */,
 				71436FEC16CD1C5400FA53C5 /* CoreGraphics.framework in Frameworks */,
@@ -81,6 +89,7 @@
 		71436FE616CD1C5300FA53C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71E5172016D39B5F004A116C /* CoreImage.framework */,
 				71436FE716CD1C5300FA53C5 /* UIKit.framework */,
 				71436FE916CD1C5300FA53C5 /* Foundation.framework */,
 				71436FEB16CD1C5300FA53C5 /* CoreGraphics.framework */,
@@ -96,6 +105,9 @@
 				71436FFF16CD1C5400FA53C5 /* ViewController.h */,
 				7143700016CD1C5400FA53C5 /* ViewController.m */,
 				7143700216CD1C5400FA53C5 /* ViewController.xib */,
+				71E5171B16D393F3004A116C /* CroppedViewController.h */,
+				71E5171C16D393F3004A116C /* CroppedViewController.m */,
+				71E5171D16D393F4004A116C /* CroppedViewController.xib */,
 				7143700A16CD1C9A00FA53C5 /* CropView.h */,
 				7143700B16CD1C9A00FA53C5 /* CropView.m */,
 				7143700F16CD383B00FA53C5 /* UIView+FaceCropping.h */,
@@ -177,6 +189,7 @@
 				71436FFE16CD1C5400FA53C5 /* Default-568h@2x.png in Resources */,
 				7143700416CD1C5400FA53C5 /* ViewController.xib in Resources */,
 				7143700E16CD1DBF00FA53C5 /* test.jpg in Resources */,
+				71E5171F16D393F4004A116C /* CroppedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +205,7 @@
 				7143700116CD1C5400FA53C5 /* ViewController.m in Sources */,
 				7143700C16CD1C9A00FA53C5 /* CropView.m in Sources */,
 				7143701116CD383C00FA53C5 /* UIView+FaceCropping.m in Sources */,
+				71E5171E16D393F4004A116C /* CroppedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +328,7 @@
 				7143700916CD1C5400FA53C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

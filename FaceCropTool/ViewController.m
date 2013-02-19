@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "CropView.h"
 #import "UIView+FaceCropping.h"
+#import "AppDelegate.h"
+#import "CroppedViewController.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet CropView *cropView;
@@ -22,14 +24,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    self.tabBarItem.title = @"Original";
+    
     _cropView.faceRect = CGRectMake(140.0f, 0.0f, 70.0f, 85.0f);
-    _cropView.cropRect = [_cropView aspectFillRectForSize:CGSizeMake(10.0f, 100.0f)];
+    _cropView.cropRect = CGRectMake(0.0f, 0.0f, 50.0f, 1000.0f); //[_cropView aspectFillRectForSize:CGSizeMake(2.0f, 4.0f)];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gesturePanMoved:)];
     [panRecognizer setMinimumNumberOfTouches:1];
     [panRecognizer setMaximumNumberOfTouches:1];
     [_cropView addGestureRecognizer:panRecognizer];
     
+    [self cropImage];
     
 }
 
@@ -55,7 +60,25 @@
         deltaRect.origin.x += tr.x;
         deltaRect.origin.y += tr.y;
         _cropView.faceRect = deltaRect;
+
     }
+    
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [self cropImage];
+    }
+}
+
+- (void)cropImage {
+    UIImage *image = [UIImage imageNamed:@"test.jpg"];
+    CGRect cropRect = [UIView crop:image.size toFitSize:_cropView.cropRect.size withoutCroppingRect:_cropView.faceRect];
+    
+    cropRect.origin.y = image.size.height - cropRect.size.height - cropRect.origin.y; // FIX to CIImage coordinate system
+    
+    CIImage *croppedCIImage = [[CIImage imageWithCGImage:image.CGImage] imageByCroppingToRect:cropRect];
+    CroppedViewController *croppedViewCtrl = [(AppDelegate*)[UIApplication sharedApplication].delegate croppedViewController];
+    UIImage *croppedImage = [UIImage imageWithCGImage:[[CIContext contextWithOptions:nil] createCGImage:croppedCIImage
+                                                                                               fromRect:croppedCIImage.extent]];
+    croppedViewCtrl.imageView.image = croppedImage;
 }
 
 

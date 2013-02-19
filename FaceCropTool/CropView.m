@@ -52,7 +52,8 @@
 }
 
 - (CGRect)resultCropRect {
-    return [self croppingRectForRect:_cropRect faceRect:_faceRect];
+    return [UIView crop:self.bounds.size toFitSize:_cropRect.size withoutCroppingRect:_faceRect];
+    //[self croppingRectForRect:_cropRect faceRect:_faceRect];
 }
 
 @end
