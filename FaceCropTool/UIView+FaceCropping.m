@@ -51,18 +51,18 @@
     
     CGFloat aspect = fitSize.width / fitSize.height;
     CGFloat originalAspect = sourceSize.width / sourceSize.height;
-    CGSize resultSize = sourceSize;
+    CGRect cropRect = CGRectMake(0.0f, 0.0f, sourceSize.width, sourceSize.height);
     
     if ( aspect / originalAspect > 1.0f ) {
-        resultSize.height = roundf(sourceSize.width / aspect);
+        cropRect.size.height = roundf(sourceSize.width / aspect);
+        cropRect.origin.y = roundf((sourceSize.height - cropRect.size.height) / 2.0f);
     } else {
-        resultSize.width = roundf(sourceSize.height * aspect);
+        cropRect.size.width = roundf(sourceSize.height * aspect);
+        cropRect.origin.x = roundf((sourceSize.width - cropRect.size.width) / 2.0f);
     }
     
-    CGRect cropRect = CGRectMake(0.0f, 0.0f, resultSize.width, resultSize.height);
-    
     // in case cropRect contains faceRect do nothing
-    if ( CGRectContainsRect(cropRect, featuresRect) ) {
+    if ( CGRectContainsRect(cropRect, featuresRect) || CGRectIsEmpty(featuresRect) ) {
         return cropRect;
     }
     

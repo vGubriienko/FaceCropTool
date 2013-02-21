@@ -27,7 +27,7 @@
     self.tabBarItem.title = @"Original";
     
     _cropView.faceRect = CGRectMake(140.0f, 0.0f, 70.0f, 85.0f);
-    _cropView.cropRect = CGRectMake(0.0f, 0.0f, 50.0f, 1000.0f); //[_cropView aspectFillRectForSize:CGSizeMake(2.0f, 4.0f)];
+    _cropView.cropRect = CGRectMake(0.0f, 0.0f, 60.0f, 200.0f); //[_cropView aspectFillRectForSize:CGSizeMake(2.0f, 4.0f)];
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gesturePanMoved:)];
     [panRecognizer setMinimumNumberOfTouches:1];
