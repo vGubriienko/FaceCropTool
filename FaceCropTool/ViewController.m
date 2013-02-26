@@ -27,7 +27,8 @@
     self.tabBarItem.title = @"Original";
     
     _cropView.faceRect = CGRectMake(140.0f, 0.0f, 70.0f, 85.0f);
-    _cropView.cropRect = CGRectMake(0.0f, 0.0f, 60.0f, 200.0f); //[_cropView aspectFillRectForSize:CGSizeMake(2.0f, 4.0f)];
+    _cropView.cropRect = CGRectMake(0.0f, 0.0f, 200.0f, 60.0f); //[_cropView aspectFillRectForSize:CGSizeMake(2.0f, 4.0f)];
+    _cropView.threshold = 0.1f;
     
     UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(gesturePanMoved:)];
     [panRecognizer setMinimumNumberOfTouches:1];
@@ -70,7 +71,7 @@
 
 - (void)cropImage {
     UIImage *image = [UIImage imageNamed:@"test.jpg"];
-    CGRect cropRect = [UIView crop:image.size toFitSize:_cropView.cropRect.size withoutCroppingRect:_cropView.faceRect];
+    CGRect cropRect = [UIView crop:image.size toFitSize:_cropView.cropRect.size withoutCroppingRect:_cropView.faceRect threshold:_cropView.threshold];
     
     cropRect.origin.y = image.size.height - cropRect.size.height - cropRect.origin.y; // FIX to CIImage coordinate system
     

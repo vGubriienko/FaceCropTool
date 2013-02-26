@@ -12,6 +12,7 @@
 
 @property (nonatomic) CGRect faceRect;
 @property (nonatomic) CGRect cropRect;
+@property (nonatomic) CGFloat threshold;
 @property (nonatomic, readonly) CGRect resultCropRect;
 
 @end
