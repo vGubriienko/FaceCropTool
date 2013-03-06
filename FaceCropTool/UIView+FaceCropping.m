@@ -48,7 +48,7 @@
 }
 
 + (CGRect)crop:(CGSize)sourceSize toFitSize:(CGSize)fitSize withoutCroppingRect:(CGRect)featuresRect {
-    return [self crop:sourceSize toFitSize:fitSize withoutCroppingRect:featuresRect threshold:1.0f];
+    return [self crop:sourceSize toFitSize:fitSize withoutCroppingRect:featuresRect threshold:0.0f];
 }
 
 + (CGRect)crop:(CGSize)sourceSize toFitSize:(CGSize)fitSize withoutCroppingRect:(CGRect)featuresRect threshold:(CGFloat)userThreshold {
@@ -76,17 +76,17 @@
     CGPoint cropRectBottomRightPoint = CGPointMake(cropRect.origin.x + cropRect.size.width, cropRect.origin.y + cropRect.size.height);
     
     if ( featuresRect.origin.x < cropRect.origin.x ) {
-        threshold =  (cropRect.origin.x - featuresRect.origin.x) / cropRect.origin.x;
+        threshold =  (cropRect.origin.x - featuresRect.origin.x) / featuresRect.size.width;
     } else if ( featuresRect.origin.y < cropRect.origin.y ) {
-        threshold =  (cropRect.origin.y - featuresRect.origin.y) / cropRect.origin.y;
+        threshold =  (cropRect.origin.y - featuresRect.origin.y) / featuresRect.size.height;
     } else if ( featuresRectBottomRightPoint.x > cropRectBottomRightPoint.x ) {
-        threshold =  (featuresRectBottomRightPoint.x - cropRectBottomRightPoint.x) / (sourceSize.width - cropRectBottomRightPoint.x);
+        threshold =  (featuresRectBottomRightPoint.x - cropRectBottomRightPoint.x) / featuresRect.size.width;
     } else if ( featuresRectBottomRightPoint.y > cropRectBottomRightPoint.y ) {
-        threshold =  (featuresRectBottomRightPoint.y - cropRectBottomRightPoint.y) / (sourceSize.height - cropRectBottomRightPoint.y);
+        threshold =  (featuresRectBottomRightPoint.y - cropRectBottomRightPoint.y) / featuresRect.size.height;
     }
     
     threshold = MIN(threshold, 1.0f);
-
+    
     //move center of cropRect to center of faceRect
     CGRect resultRect =  CGRectOffset(cropRect,
                                       CGRectGetMidX(featuresRect) - CGRectGetMidX(cropRect) ,
@@ -99,7 +99,7 @@
     resultRect.origin.x = roundf(resultRect.origin.x);
     resultRect.origin.y = roundf(resultRect.origin.y);
     
-    return (userThreshold >= threshold) ? resultRect : cropRect ;
+    return (userThreshold < threshold) ? resultRect : cropRect ;
 }
 
 @end
